@@ -125,20 +125,22 @@ const postsId = document.querySelectorAll(".post");
 const likedPosts = []; // init liked posts array
 
 for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener(
-    "click",
-    function () {
-      // toggle CSS class
-      this.classList.add("like-button--liked");
+  buttons[i].addEventListener("click", function () {
+    // add 1 like every click
+    let likes = likesCounter[i].innerHTML;
 
-      // add 1 like every click
-      let likes = likesCounter[i].innerHTML;
+    if (likedPosts.includes(postsId[i])) {
+      // if element already in array
+      likes = parseInt(likes) - 1;
+      this.classList.remove("like-button--liked"); // remove CSS class
+      likedPosts.splice(0); // remove element from array
+    } else {
+      // if element is not in the array
       likes = parseInt(likes) + 1;
-      likesCounter[i].innerHTML = likes;
+      this.classList.add("like-button--liked"); // add CSS class
+      likedPosts.push(postsId[i]); // add element to array
+    }
 
-      // add to likesPosts array every post clicked
-      likedPosts.push(postsId[i]);
-    },
-    { once: true }
-  );
+    likesCounter[i].innerHTML = likes;
+  });
 }
