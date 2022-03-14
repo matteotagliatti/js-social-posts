@@ -65,6 +65,10 @@ const outputContainer = document.getElementById("container");
 
 // Generate all the DOM elements with posts objects
 posts.forEach((element) => {
+  // European format date
+  const europeanDate = element.created.split("-");
+  element.created = `${europeanDate[2]}-${europeanDate[1]}-${europeanDate[0]}`;
+
   outputContainer.innerHTML += `
     <div id="${element.id}" class="post">
             <div class="post__header">
