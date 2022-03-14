@@ -56,8 +56,32 @@ const posts = [
       name: "Alessandro Sainato",
       image: "https://unsplash.it/300/300?image=29",
     },
-    likes: 95,
+    likes: 111,
     created: "2021-03-05",
+  },
+  {
+    id: 6,
+    content:
+      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    media: "https://unsplash.it/600/400?image=111",
+    author: {
+      name: "Matteo Tagliatti",
+      image: "https://unsplash.it/300/300?image=19",
+    },
+    likes: 23,
+    created: "2021-03-04",
+  },
+  {
+    id: 7,
+    content:
+      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    media: "https://unsplash.it/600/400?image=110",
+    author: {
+      name: "Giovanni Sperti",
+      image: null,
+    },
+    likes: 45,
+    created: "2021-03-04",
   },
 ];
 
