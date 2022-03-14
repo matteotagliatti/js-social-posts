@@ -142,11 +142,3 @@ for (let i = 0; i < buttons.length; i++) {
     { once: true }
   );
 }
-
-//
-/* const profilePic = document.querySelectorAll(".profile-pic");
-for (let i = 0; i < profilePic.length; i++) {
-  if (profilePic[i].src == "null")
-    profilePic[i].src = `ciao
-`;
-} */
