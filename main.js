@@ -63,6 +63,7 @@ const posts = [
 
 const outputContainer = document.getElementById("container");
 
+// Generate all the DOM elements with posts objects
 posts.forEach((element) => {
   outputContainer.innerHTML += `
     <div id="${element.id}" class="post">
@@ -98,19 +99,23 @@ posts.forEach((element) => {
     `;
 });
 
+// Select DOM elements
 const buttons = document.querySelectorAll(".js-like-button");
 const likesCounter = document.querySelectorAll(".js-likes-counter");
 const postsId = document.querySelectorAll(".post");
-const likedPosts = [];
+const likedPosts = []; // init liked posts array
 
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
+    // toggle CSS class
     this.classList.toggle("like-button--liked");
 
+    // add 1 like every click
     let likes = likesCounter[i].innerHTML;
     likes = parseInt(likes) + 1;
     likesCounter[i].innerHTML = likes;
 
+    // add to likesPosts array every post clicked
     likedPosts.push(postsId[i]);
   });
 }
