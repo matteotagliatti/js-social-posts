@@ -69,12 +69,27 @@ posts.forEach((element) => {
   const europeanDate = element.created.split("-");
   element.created = `${europeanDate[2]}-${europeanDate[1]}-${europeanDate[0]}`;
 
+  // If there is no image name initials as image
+  if (element.author.image === null) {
+    const arrayName = element.author.name.split(" ");
+    const arrayInitials = [];
+    for (let i = 0; i < arrayName.length; i++) {
+      const firstLetter = arrayName[i].charAt(0);
+      arrayInitials.push(firstLetter);
+    }
+    element.author.initials = arrayInitials.join("");
+
+    element.meta = `<div class="profile-pic-default"><span>${element.author.initials}</span></div>`;
+  } else {
+    element.meta = `<img class="profile-pic" src="${element.author.image}" alt="${element.author.name}">`;
+  }
+
   outputContainer.innerHTML += `
     <div id="${element.id}" class="post">
             <div class="post__header">
-                <div class="post-meta">                    
+                <div class="post-meta">
                     <div class="post-meta__icon">
-                        <img class="profile-pic" src="${element.author.image}" alt="$${element.author.name}">                    
+                        ${element.meta}
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${element.author.name}</div>
@@ -127,3 +142,11 @@ for (let i = 0; i < buttons.length; i++) {
     { once: true }
   );
 }
+
+//
+/* const profilePic = document.querySelectorAll(".profile-pic");
+for (let i = 0; i < profilePic.length; i++) {
+  if (profilePic[i].src == "null")
+    profilePic[i].src = `ciao
+`;
+} */
