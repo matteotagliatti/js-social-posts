@@ -153,7 +153,7 @@ for (let i = 0; i < buttons.length; i++) {
     // add 1 like every click
     let likes = likesCounter[i].innerHTML;
 
-    if (likedPosts.includes(postsId[i])) {
+    if (buttons[i].classList.contains("like-button--liked")) {
       // if element already in array
       likes = parseInt(likes) - 1;
       this.classList.remove("like-button--liked"); // remove CSS class
