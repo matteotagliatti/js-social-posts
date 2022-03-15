@@ -149,7 +149,9 @@ const postsId = document.querySelectorAll(".post");
 const likedPosts = []; // init liked posts array
 
 for (let i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", function () {
+  buttons[i].addEventListener("click", function (event) {
+    event.preventDefault(); // prevent href
+
     // add 1 like every click
     let likes = likesCounter[i].innerHTML;
 
